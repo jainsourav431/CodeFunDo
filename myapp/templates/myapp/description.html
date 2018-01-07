@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% load static %}
+    <style>
+      div.mycontainer{
+        color: white;
+        text-align: center;
+        padding: 10px 20px 10px 20px;
+        margin-bottom: 50px;
+        height: 50px;
+      }
+      div.bottom{
+        color: white;
+        text-align: center;
+        padding: 10px 20px 10px 20px;
+        margin-top: -50px;
+        height: 50px;
+      }
+      .myhead {
+        color: #4286f4;
+      }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Prinder - Find your project partner</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'myapp/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+      <link rel="stylesheet" href = "{% static 'myapp/style.css' %}">
+
+    <link href="{% static 'myapp/scrolling-nav.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    
+
+    <header class="bg-primary text-white">
+      <div class="container text-center">
+        <div class = "mycontainer">
+          <h1>{{owners.name}}</h1>
+        </div>
+        <div class = "mycontainer">
+          <h3>{{owners.age}} YEARS</h3>
+        </div>
+        <div class = "mycontainer">
+          <h3>{{owners.branch}}</h3>
+        </div>
+        <div class = "bottom">
+          <h3>{{owners.college}}</h3>
+        </div>
+    </header>
+
+    {% for i in projects %}
+      <section id="dark"  class = "bg-dark">    
+        <div class="mycontainer">
+          <div class="row">
+            <div class="col-lg-2 mx-auto">
+              <a style="text-decoration:none" href="{% url 'myapp:description' i.projectName %}">
+                  <p> <h1 class="myhead"> {{i.projectName}} </h1> </p>
+                  </a>
+                    <div class="col">
+                          <p> {{i.projectDescripton}} </p>
+                      </div>
+                      <div class="col">
+                          <h3> {{i.mainCategory}} </h3>
+                      </div>
+                      <div class="col">
+                            <h3> {{i.subCategory}} </h3> 
+                      </div>      
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <section id="light" >     
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2 mx-auto">
+                   
+          </a>    
+              </a>
+            </div>
+          </div>
+        </div>
+      </section> -->
+      
+    {% endfor %}
+
+    
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'myapp/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'myapp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{%static 'myapp/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="{%static 'myapp/js/scrolling-nav.js' %}"></script>
+
+  </body>
+
+</html>

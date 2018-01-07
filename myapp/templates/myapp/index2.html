@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Home Page</title>
+
+        <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our Custom CSS -->
+          {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'myapp/style2.css' %}"/>
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+         <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../../static/BuyandSell/style.css">
+
+    </head>
+    <body>
+
+
+
+        <div class="wrapper">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Pinder Sidebar</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">CSE</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li><a href="#">ML</a></li>
+                            <li><a href="#">CN </a></li>
+                            <li><a href="#">TOC</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <!-- <a href="#">About</a> -->
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">MECH</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li><a href="#">Automobile</a></li>
+                            <li><a href="#">Thermal</a></li>
+                            <li><a href="#">Fluid</a></li>
+                        </ul>
+                    </li>
+                     <li>
+                        <!-- <a href="#">About</a> -->
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">ECE</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li><a href="#">VLSI</a></li>
+                            <li><a href="#">CMOS</a></li>
+                            <li><a href="#">PMOS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Page Content Holder -->
+            <div id="content">
+
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+                            <!-- <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                                <i class="glyphicon glyphicon-align-left"></i>
+                                <span>Click  for Filters</span>
+                            </button> -->
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#">Myprojects</a></li>
+                                <li><a href="#">Profile</a></li>
+                                <li><a href="#">Bookmarked</a></li>
+                                <li><a href="{% url 'myapp:logout'%}">Logout</a></li>
+                                <li><a href ="{% url 'myapp:addproject' username %}">Add Project</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                 </div>
+                 </div>
+                    {% for i in projects %}
+                <div class = "container">
+                        <div class = "item_temp">
+                            <p>{{i.projectname}}</p>
+                              <p class="title">Description : {{i.projectDescripton}}</p>
+                              <p>Major : {{i.mainCategory}}</p>
+                              <p>Minor : {{i.subCategory}}</p>
+                        </div>
+                </div>
+                {%endfor%}
+                <h2>Pinder Home Page</h2>
+                
+            
+       
+
+
+
+
+
+        <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <!-- Bootstrap Js CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- jQuery Custom Scroller CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar, #content').toggleClass('active');
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+            });
+        </script>
+    </body>
+</html>

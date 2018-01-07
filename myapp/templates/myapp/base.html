@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  {%load static%}
+  <title>Home Page</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../../static/myapp/style.css">
+</head>
+
+<body>
+
+	<div class="block-container">
+		<div class = 'my-header'>
+		Prinder 
+		</div>
+ 	</div> 
+ 	
+ 	<div class='nav-div'>
+ 		<ul class="nav-bar">
+ 			<a href="#" class = "nav-list-link"><li class = "nav-list-item move-left">MyProjects</li></a>
+ 			<a href="{% url 'myapp:profile' username  %}" class = "nav-list-link"><li class = "nav-list-item move-left">Profile</li></a>
+ 			<a href="#" class = "nav-list-link"><li class = "nav-list-item move-left">Bookmarked</li></a>
+ 			<a href="{% url 'myapp:logout'  %}" class = "nav-list-link"><li class = "nav-list-item move-right">Logout</li></a>
+ 			<a href="{% url 'myapp:addproject' username %}" class = "nav-list-link"><li class = "nav-list-item move-right">Add Project</li></a>
+ 		</ul>
+ 	</div>
+
+	<!-- <div class = "container">
+		<form  action ="{% url 'BuyandSell: search'  data % }" role="search"  enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class = "form-group">
+				<label for="search_box" class = "label_class_1">Search</label>
+				<input type="search_input" name= "data" class = "form-control" id="search_box" placeholder="Search">
+				<button type="search" class = "btn btn-default">Search</button>
+			</div>
+		</form>
+	</div>
+ -->	
+
+	<div class = "page-footer">
+	</div>
+
+	<div class="foot-div"></div>
+{% block body %}
+{% endblock %}
+</body>
+
+</html>
